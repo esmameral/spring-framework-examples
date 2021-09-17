@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 @Entity
 public  class Employee {
 	@Id
@@ -22,9 +18,12 @@ public  class Employee {
 	private int id;
 	private String name;
 	private String username;
-	@OneToMany(mappedBy="employee",cascade=CascadeType.ALL)
-	private List<Task> tasks = new ArrayList<Task>();
+	@OneToMany(mappedBy="assignee",cascade=CascadeType.ALL)
+	private List<Task> assignedTasks = new ArrayList<Task>();
 
+	@OneToMany(mappedBy="owner",cascade=CascadeType.ALL)
+	private List<Task> ownedTasks = new ArrayList<Task>();
+	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name = "PROJECT_EMP")
 	private List<Project> projects = new ArrayList<Project>();
@@ -36,15 +35,25 @@ public  class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public List<Task> getTasks() {
-		return tasks;
+	
+
+	
+
+	public List<Task> getAssignedTasks() {
+		return assignedTasks;
 	}
 
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
+	public void setAssignedTasks(List<Task> assignedTasks) {
+		this.assignedTasks = assignedTasks;
 	}
 
+	public List<Task> getOwnedTasks() {
+		return ownedTasks;
+	}
 
+	public void setOwnedTasks(List<Task> ownedTasks) {
+		this.ownedTasks = ownedTasks;
+	}
 
 	@Override
 	public int hashCode() {

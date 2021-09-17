@@ -8,10 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,7 +19,10 @@ public class Task {
 	@Column(length = 500)
 	private String detail;
 	@ManyToOne
-	private Employee employee;
+	private Employee owner;
+	
+	@ManyToOne
+	private Employee assignee;
 
 	@ManyToOne
 	private Project project;
@@ -33,6 +32,22 @@ public class Task {
 	private Date createDate;
 
 	
+	public Employee getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Employee owner) {
+		this.owner = owner;
+	}
+
+	public Employee getAssignee() {
+		return assignee;
+	}
+
+	public void setAssignee(Employee assignee) {
+		this.assignee = assignee;
+	}
+
 	public String getDetail() {
 		return detail;
 	}
@@ -59,13 +74,8 @@ public class Task {
 	}
 
 	
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+	
+	
 
 	public Project getProject() {
 		return project;
