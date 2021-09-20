@@ -14,63 +14,76 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 @Entity
 public class Project {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@Column(length=100)
+	@Column(length = 100)
 	private String name;
-	@Column(name="START_DATE")
+	@Column(name = "START_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
-	@Column(name="END_DATE")
+	@Column(name = "END_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "project")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
 	private List<Task> tasks = new ArrayList<Task>();
-	
-	@ManyToMany(mappedBy="projects", cascade=CascadeType.ALL)
+
+	@ManyToMany(mappedBy = "projects", cascade = CascadeType.ALL)
 	private List<Employee> employees = new ArrayList<>();
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
-		
+
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Date getStartDate() {
 		return startDate;
 	}
+
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+
 	public Date getEndDate() {
 		return endDate;
 	}
+
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
 	public List<Task> getTasks() {
 		return tasks;
 	}
+
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
+
 	public List<Employee> getEmployees() {
 		return employees;
 	}
+
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -78,6 +91,7 @@ public class Project {
 		result = prime * result + id;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

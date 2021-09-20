@@ -20,7 +20,7 @@ public class Task {
 	private String detail;
 	@ManyToOne
 	private Employee owner;
-	
+
 	@ManyToOne
 	private Employee assignee;
 
@@ -31,7 +31,6 @@ public class Task {
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
 
-	
 	public Employee getOwner() {
 		return owner;
 	}
@@ -56,7 +55,6 @@ public class Task {
 		this.detail = detail;
 	}
 
-
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -72,10 +70,6 @@ public class Task {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
-	
-	
 
 	public Project getProject() {
 		return project;
@@ -106,7 +100,5 @@ public class Task {
 			return false;
 		return true;
 	}
-
-	
 
 }
