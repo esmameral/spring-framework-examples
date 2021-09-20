@@ -59,18 +59,17 @@ class DemoApplicationTests {
 
 		Task task1 = new Task();
 		task1.setProject(project);
-		task1.setOwner(employee1);
-		task1.setAssignee(employee2);
+		task1.setOwner(employee2);
+		task1.setAssignee(employee1);
 		task1.setCreateDate(new Date());
-		task1.setDetail(
-				"task1");
+		task1.setDetail("task1");
 		
 		
 		
 		Task task2 = new Task();
 		task2.setProject(project);
 		task2.setOwner(employee1);
-		task2.setAssignee(employee1);
+		task2.setAssignee(employee2);
 		task2.setCreateDate(new Date());
 		task2.setDetail("task2");
 		
