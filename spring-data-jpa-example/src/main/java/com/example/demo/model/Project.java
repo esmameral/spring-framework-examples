@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Project {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
