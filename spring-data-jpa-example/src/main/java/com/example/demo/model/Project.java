@@ -27,6 +27,7 @@ public class Project {
 	@Column(name = "START_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
+	
 	@Column(name = "END_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
