@@ -23,6 +23,7 @@ public class Project {
 	
 	@Column(length = 100)
 	private String name;
+	
 	@Column(name = "START_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
