@@ -114,19 +114,19 @@ class DemoApplicationTests {
 			System.out.println(project.getName());
 		}
 		
-		List<Employee> empList=employeeRepository.findEmployeeByUsername("cdemir");
+		List<Employee> empList=employeeRepository.findByUsername("cdemir");
 		assertTrue(empList.size()>0);
 		for (Employee employee : empList) {
 			System.out.println(employee.getName()+" "+employee.getUsername());
 		}
 		
-		List<Employee> empList1=employeeRepository.findEmployeesByAssignedTasksId(4);
+		List<Employee> empList1=employeeRepository.findByAssignedTasksId(4);
 		assertTrue(empList1.size()>0);
 		for (Employee employee : empList1) {
 			System.out.println(employee.getName()+" "+employee.getUsername());
 		}
 		
-		List<Employee> empList2=employeeRepository.findEmployeesByOwnedTasksId(5);
+		List<Employee> empList2=employeeRepository.findByOwnedTasksId(5);
 		assertTrue(empList2.size()>0);
 		for (Employee employee : empList2) {
 			System.out.println(employee.getName()+" "+employee.getUsername());

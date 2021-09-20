@@ -12,9 +12,9 @@ import com.example.demo.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {	
-	public List<Employee> findEmployeeByUsername(String username);
+	public List<Employee> findByUsername(String username);
 	
-	public List<Employee> findEmployeesByAssignedTasksId(@Param("id") int id);
+	public List<Employee> findByAssignedTasksId(int id);
 	
-	public List<Employee> findEmployeesByOwnedTasksId(@Param("id") int id);
+	public List<Employee> findByOwnedTasksId(int id);
 }

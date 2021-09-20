@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -25,7 +26,7 @@ public  class Employee {
 	private List<Task> ownedTasks = new ArrayList<Task>();
 	
 	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name = "PROJECT_EMP")
+	@JoinTable(name = "PROJECT_EMPL")
 	private List<Project> projects = new ArrayList<Project>();
 
 	public int getId() {
