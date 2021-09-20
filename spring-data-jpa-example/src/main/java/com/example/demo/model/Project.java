@@ -20,6 +20,7 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	@Column(length = 100)
 	private String name;
 	@Column(name = "START_DATE")
