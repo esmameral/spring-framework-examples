@@ -1,7 +1,5 @@
 package com.sample.model;
 
-import java.util.Date;
-
 public class Greeting {
 private String name;
 private String message;
