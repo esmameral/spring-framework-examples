@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
- 	<p th:text="'Today is ' + ${greeting.date} + '!'" />
-    <p th:text="${greeting.message}" />
+	<p th:text="'Today is ' + ${greeting.date} + '!'" />
+	<p th:text="${greeting.message}" />
+
+	<ol>
+		<li th:each="aTown : ${townList}" th:text="${aTown}"></li>
+	</ol>
 </body>
 </html>
