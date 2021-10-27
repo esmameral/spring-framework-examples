@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 
@@ -19,6 +20,7 @@ import com.example.demo.model.Task;
 import com.example.demo.repository.EmployeeRepository;
 import com.example.demo.repository.ProjectRepository;
 import com.example.demo.repository.TaskRepository;
+import com.example.demo.service.IPerson;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -32,6 +34,15 @@ class DemoApplicationTests {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Autowired
+	@Qualifier("student")
+	IPerson member;
+
+	@Test
+	void test() {
+		
+		System.out.println(member.getNameById(1));
+	}
 	
 	@Test
 	public void testCreateProject() {

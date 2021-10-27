@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+    
+    <form name='greeting' th:object="${greetingForm}" method='POST' action="/greeting">
+    	<input type="text" name="name" placeholder="Enter you name">
+    	<br/>
+    	
+    	<select th:field="*{cityCode}">
+                         <option value=""> -- </option>
+                         <option th:each="city : ${cityList}"
+                            th:value="${city.code}"
+                            th:utext="${city.name}"/>
+                  </select>
+    	
+    	<input type="submit" value="Say Hello" >
+    </form>
+    
+</body>
+
+
+
+</html>
